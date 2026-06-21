@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bullet CCTV camera">
+  <defs>
+    <linearGradient id="bl-cyl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef3f9"/><stop offset="0.16" stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#dde5ef"/><stop offset="0.82" stop-color="#aeb9c8"/><stop offset="1" stop-color="#8c98a9"/>
+    </linearGradient>
+    <linearGradient id="bl-shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="0.6" stop-color="#e3e9f1"/><stop offset="1" stop-color="#bcc6d4"/>
+    </linearGradient>
+    <linearGradient id="bl-bezel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="0.5" stop-color="#cdd7e2"/><stop offset="1" stop-color="#828fa1"/>
+    </linearGradient>
+    <radialGradient id="bl-lens" cx="0.42" cy="0.36" r="0.72">
+      <stop offset="0" stop-color="#4a5b75"/><stop offset="0.4" stop-color="#1a2333"/><stop offset="0.8" stop-color="#0a0f1a"/><stop offset="1" stop-color="#05080f"/>
+    </radialGradient>
+    <linearGradient id="bl-metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dde4ee"/><stop offset="1" stop-color="#8a97a8"/>
+    </linearGradient>
+    <filter id="bl-soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+
+  <!-- contact shadow -->
+  <ellipse cx="208" cy="268" rx="120" ry="15" fill="#02040a" opacity="0.45" filter="url(#bl-soft)"/>
+
+  <!-- wall mount -->
+  <rect x="120" y="232" width="70" height="16" rx="8" fill="url(#bl-metal)"/>
+  <circle cx="133" cy="240" r="2.4" fill="#76828f"/><circle cx="177" cy="240" r="2.4" fill="#76828f"/>
+  <rect x="148" y="172" width="15" height="64" rx="7.5" fill="url(#bl-metal)"/>
+  <circle cx="155.5" cy="172" r="11" fill="#9aa6b4"/><circle cx="155.5" cy="172" r="5" fill="#7e8a98"/>
+
+  <!-- body cylinder -->
+  <rect x="104" y="112" width="208" height="74" rx="37" fill="url(#bl-cyl)" stroke="#9fabbb" stroke-width="1.2"/>
+  <rect x="120" y="120" width="150" height="8" rx="4" fill="#ffffff" opacity="0.85"/>
+  <rect x="126" y="170" width="120" height="6" rx="3" fill="#7f8c9e" opacity="0.4"/>
+  <!-- seam ring -->
+  <rect x="250" y="113" width="5" height="72" rx="2.5" fill="#94a0b0" opacity="0.5"/>
+
+  <!-- sun shield -->
+  <path d="M112 110 q150 -26 196 2 l0 8 q-150 -22 -196 4 z" fill="url(#bl-shield)" stroke="#9fabbb" stroke-width="1"/>
+
+  <!-- front bezel + lens -->
+  <circle cx="308" cy="149" r="37" fill="url(#bl-bezel)" stroke="#8a97a8" stroke-width="1.2"/>
+  <circle cx="308" cy="149" r="30" fill="#11161f"/>
+  <circle cx="308" cy="149" r="27" fill="url(#bl-lens)"/>
+  <path d="M291 134 a23 23 0 0 1 30 -3" fill="none" stroke="#7fdcff" stroke-width="3" stroke-linecap="round" opacity="0.45"/>
+  <circle cx="298" cy="139" r="4.5" fill="#bfeeff" opacity="0.8"/>
+  <circle cx="308" cy="149" r="9" fill="#04060c"/>
+</svg>
