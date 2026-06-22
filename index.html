@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Primary SEO -->
+  <title>Matha Computers &amp; CCTV | CCTV, Desktop &amp; Laptop Sales &amp; Service in Bangalore</title>
+  <meta name="description" content="Matha Computers &amp; CCTV — trusted CCTV surveillance, desktop and laptop sales, repairs and AMC in Huskur, Harohalli, Bangalore. Free site survey. Call 9886795838 or message on WhatsApp." />
+  <meta name="keywords" content="CCTV installation Bangalore, CCTV Harohalli, computer repair Huskur, laptop service Bangalore, desktop sales, CCTV camera dealer, AMC, IP camera, DVR NVR" />
+  <meta name="author" content="Matha Computers & CCTV" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.mathacomputers.in/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Matha Computers & CCTV" />
+  <meta property="og:title" content="Matha Computers & CCTV | Sales & Service in Bangalore" />
+  <meta property="og:description" content="CCTV surveillance, desktops & laptops — sales, repairs and AMC in Harohalli, Bangalore. Free site survey. WhatsApp 9886795838." />
+  <meta property="og:url" content="https://www.mathacomputers.in/" />
+  <meta property="og:image" content="https://www.mathacomputers.in/assets/og-image.svg" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Matha Computers & CCTV | Sales & Service in Bangalore" />
+  <meta name="twitter:description" content="CCTV, desktops & laptops — sales, repairs and AMC in Harohalli, Bangalore. WhatsApp 9886795838." />
+  <meta name="twitter:image" content="https://www.mathacomputers.in/assets/og-image.svg" />
+
+  <!-- Icons / Manifest -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css?v=10" />
+
+
+  <!-- Structured data: LocalBusiness (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ElectronicsStore",
+    "name": "Matha Computers & CCTV",
+    "image": "https://www.mathacomputers.in/assets/og-image.svg",
+    "description": "CCTV surveillance, desktop and laptop sales, repairs and annual maintenance contracts in Bangalore.",
+    "url": "https://www.mathacomputers.in/",
+    "telephone": "+919886795838",
+    "priceRange": "₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Huskur, Harohalli",
+      "addressLocality": "Bangalore",
+      "addressRegion": "Karnataka",
+      "postalCode": "560099",
+      "addressCountry": "IN"
+    },
+    "areaServed": "Bangalore",
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:30",
+      "closes": "20:00"
+    }],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CCTV Installation & Service" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desktop Sales & Repair" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Laptop Sales & Repair" } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Cinematic surveillance sequence — fixed living background for the whole page -->
+  <canvas id="seqCanvas" aria-hidden="true"></canvas>
+  <canvas id="netCanvas" aria-hidden="true"></canvas>
+  <div id="seqVeil" aria-hidden="true"></div>
+  <div id="seqScrim" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <div id="seqLoader" aria-hidden="true">
+    <div class="seqLoader__ring"></div>
+    <p class="seqLoader__text">Establishing secure feed</p>
+  </div>
+
+  <!-- Mouse-follow glow -->
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Skip link (a11y) -->
+  <a class="skip-link" href="#hero">Skip to content</a>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#hero" aria-label="Matha Computers and CCTV — home">
+        <img src="assets/logo.svg" alt="" width="40" height="40" class="brand__mark" />
+        <span class="brand__text">
+          <span class="brand__name">MATHA</span>
+          <span class="brand__sub">Computers &amp; CCTV</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#products">Products</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn--wa nav__cta" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM12.05 20.1h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42-.14 0-.31-.02-.47-.02-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+        WhatsApp
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#products">Products</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn--wa" href="https://wa.me/919886795838" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== CINEMATIC HERO (scroll-driven surveillance sequence) ===== -->
+    <section class="cine" id="hero">
+      <div class="cine__stage">
+
+        <!-- Stage 1 · the camera -->
+        <div class="cine__panel cine__panel--intro" data-a="0" data-b="0" data-c="0.12" data-d="0.2">
+          <p class="cine__eyebrow"><span class="dot"></span> Huskur · Harohalli · Bangalore — 560099</p>
+          <h1 class="cine__title">Security that <span class="grad-text">never blinks</span></h1>
+          <p class="cine__lead">
+            CCTV surveillance, desktops and laptops — expert <strong>sales &amp; service</strong>
+            you can trust. From smart camera installations to fast repairs and AMC.
+          </p>
+          <div class="cine__cta">
+            <a class="btn btn--wa btn--lg" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM12.05 20.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+              Get a Free Quote
+            </a>
+            <a class="btn btn--ghost btn--lg" href="tel:+919886795838">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.3 2.1Z"/></svg>
+              Call 98867 95838
+            </a>
+          </div>
+        </div>
+
+        <!-- Stage 2 · zoom into the lens -->
+        <div class="cine__panel cine__panel--mid" data-a="0.28" data-b="0.36" data-c="0.47" data-d="0.56">
+          <p class="cine__kicker">Always watching</p>
+          <h2 class="cine__big">Every lens. Every angle.<br>Every second.</h2>
+        </div>
+
+        <!-- Stage 3 · the surveillance network -->
+        <div class="cine__panel cine__panel--net" data-a="0.66" data-b="0.78" data-c="1" data-d="1">
+          <p class="cine__kicker">Always-on coverage</p>
+          <h2 class="cine__title">An intelligent <span class="grad-text">surveillance network</span></h2>
+          <p class="cine__lead">
+            Every camera, recorder and device linked into one seamless system —
+            so nothing ever slips out of view.
+          </p>
+          <div class="cine__cta">
+            <a class="btn btn--wa btn--lg" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27d%20like%20to%20book%20a%20free%20site%20survey." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM16.57 13.94c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+              Book a free site survey
+            </a>
+          </div>
+        </div>
+
+        <span class="cine__cue" aria-hidden="true"><span></span></span>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section" id="services">
+      <div class="section__head reveal">
+        <span class="kicker">What we do</span>
+        <h2 class="section__title">Complete <span class="grad-text">sales &amp; service</span> under one roof</h2>
+        <p class="section__sub">From advanced surveillance to high-performance computers — sales, installation, repairs and maintenance handled by certified technicians.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card glass reveal" tabindex="0">
+          <div class="card__icon" data-accent="cyan">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M3 6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1.2l4.5-2.3a1 1 0 0 1 1.5.9v8.4a1 1 0 0 1-1.5.9L16 12.8V14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Zm6 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>
+          </div>
+          <h3>CCTV Surveillance</h3>
+          <p>HD/IP camera systems, DVR &amp; NVR setup, remote mobile viewing and night-vision — for homes, shops, offices and apartments.</p>
+          <ul class="card__list">
+            <li>Indoor &amp; outdoor cameras</li>
+            <li>Mobile &amp; cloud monitoring</li>
+            <li>Wiring, setup &amp; AMC</li>
+          </ul>
+        </article>
+
+        <article class="card glass reveal" tabindex="0">
+          <div class="card__icon" data-accent="blue">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-5v2h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2H6a2 2 0 0 1-2-2V5Zm2 0v9h12V5H6Z"/></svg>
+          </div>
+          <h3>Desktops &amp; Custom PCs</h3>
+          <p>Branded &amp; assembled desktops, gaming and office builds, upgrades, and reliable repairs with genuine components.</p>
+          <ul class="card__list">
+            <li>Custom &amp; gaming builds</li>
+            <li>SSD/RAM upgrades</li>
+            <li>Hardware repairs</li>
+          </ul>
+        </article>
+
+        <article class="card glass reveal" tabindex="0">
+          <div class="card__icon" data-accent="orange">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M5 4h14a1 1 0 0 1 1 1v10h1a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1h1V5a1 1 0 0 1 1-1Zm1 2v9h12V6H6Z"/></svg>
+          </div>
+          <h3>Laptops &amp; Repairs</h3>
+          <p>New &amp; refurbished laptops, plus expert repairs — screens, keyboards, batteries, motherboards and OS installs.</p>
+          <ul class="card__list">
+            <li>Sales &amp; exchange</li>
+            <li>Screen/battery service</li>
+            <li>Data recovery</li>
+          </ul>
+        </article>
+
+        <article class="card glass reveal" tabindex="0">
+          <div class="card__icon" data-accent="cyan">
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 3 3 3 3 0 0 1-1 5.65V18a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-1.35A3 3 0 0 1 4 11a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Zm0 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg>
+          </div>
+          <h3>IT &amp; Networking</h3>
+          <p>Wi-Fi &amp; LAN networking, virus removal, annual maintenance contracts and on-site support for businesses.</p>
+          <ul class="card__list">
+            <li>Networking &amp; Wi-Fi</li>
+            <li>Virus &amp; software fixes</li>
+            <li>Business AMC</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTS (red/black surveillance bento) ===== -->
+    <section class="section" id="products">
+      <div class="section__head reveal">
+        <span class="kicker">What we stock</span>
+        <h2 class="section__title">Everything for a <span class="grad-text">smarter, safer</span> space</h2>
+        <p class="section__sub">From surveillance that never sleeps to the computers that run your day — explore our range. Tap any card to enquire on WhatsApp.</p>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- HERO: CCTV Camera Systems -->
+        <a class="product-card glass reveal" id="pc-cctv"
+           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20CCTV%20Camera%20Systems.%20Please%20share%20details."
+           target="_blank" rel="noopener" aria-label="Enquire about CCTV Camera Systems on WhatsApp">
+          <span class="product-card__tag">Most installed</span>
+          <span class="product-card__grid" aria-hidden="true"></span>
+          <svg class="pc-rings" viewBox="0 0 200 200" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="100" cy="100" r="30" stroke-opacity="0.65"/>
+              <circle cx="100" cy="100" r="56" stroke-opacity="0.40"/>
+              <circle cx="100" cy="100" r="84" stroke-opacity="0.22"/>
+              <line x1="100" y1="8" x2="100" y2="192" stroke-opacity="0.16"/>
+              <line x1="8" y1="100" x2="192" y2="100" stroke-opacity="0.16"/>
+            </g>
+            <circle class="pc-rings__core" cx="100" cy="100" r="4.5" fill="currentColor"/>
+          </svg>
+          <span class="product-card__icon" data-accent="cyan" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30"><path fill="currentColor" d="M2.55 7.1 15.86 3.6a1 1 0 0 1 1.22.71l.85 3.18a1 1 0 0 1-.7 1.22l-2.3.62.39 1.45-1.93.52-.39-1.45-8.22 2.2a1 1 0 0 1-1.22-.7L2.55 7.1Zm2.2.84.54 2 8.7-2.33-.54-2-8.7 2.33Z"/><path fill="currentColor" d="M10.5 13.2h1.93v2.55a2.7 2.7 0 0 1-2.7 2.7H5.9v-1.93h3.83a.77.77 0 0 0 .77-.77V13.2Z"/></svg>
+          </span>
+          <div class="product-card__body">
+            <h3 class="product-card__title">CCTV Camera Systems</h3>
+            <p class="product-card__desc">HD &amp; IP cameras — bullet, dome, PTZ and Wi-Fi — with crystal-clear night vision and live mobile viewing from anywhere.</p>
+            <div class="product-card__chips">
+              <span>4K Ultra HD</span><span>Color night vision</span><span>Mobile viewing</span>
+            </div>
+            <span class="product-card__cue">Enquire on WhatsApp
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktops & Custom PCs -->
+        <a class="product-card glass reveal" id="pc-desktop"
+           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Desktops%20%26%20Custom%20PCs.%20Please%20share%20details."
+           target="_blank" rel="noopener" aria-label="Enquire about Desktops and Custom PCs on WhatsApp">
+          <span class="product-card__icon" data-accent="orange" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3a1 1 0 1 1 0 2H7a1 1 0 1 1 0-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg>
+          </span>
+          <div class="product-card__body">
+            <h3 class="product-card__title">Desktops &amp; Custom PCs</h3>
+            <p class="product-card__desc">Gaming rigs and office builds — assembled, upgraded and tuned to your budget.</p>
+            <span class="product-card__cue">Enquire
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Laptops -->
+        <a class="product-card glass reveal" id="pc-laptop"
+           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Laptops.%20Please%20share%20details."
+           target="_blank" rel="noopener" aria-label="Enquire about Laptops on WhatsApp">
+          <span class="product-card__icon" data-accent="cyan" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M5 5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h1.6a.4.4 0 0 1 .4.4c0 1.1-.9 1.6-2 1.6H4c-1.1 0-2-.5-2-1.6a.4.4 0 0 1 .4-.4H5V5Zm2 1v8h10V6H7Z"/></svg>
+          </span>
+          <div class="product-card__body">
+            <h3 class="product-card__title">Laptops</h3>
+            <p class="product-card__desc">New and refurbished laptops from trusted brands, set up and ready to work.</p>
+            <span class="product-card__cue">Enquire
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Networking & Wi-Fi -->
+        <a class="product-card glass reveal" id="pc-network"
+           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Networking%20%26%20Wi-Fi.%20Please%20share%20details."
+           target="_blank" rel="noopener" aria-label="Enquire about Networking and Wi-Fi on WhatsApp">
+          <span class="product-card__icon" data-accent="blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M12 19.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Zm5.1-6.6-1.6 1.6a4.9 4.9 0 0 0-7 0L6.9 13.2a7.2 7.2 0 0 1 10.2 0Zm3-3-1.6 1.6a9.2 9.2 0 0 0-13 0L3.9 10.2a11.5 11.5 0 0 1 16.2 0Z"/></svg>
+          </span>
+          <div class="product-card__body">
+            <h3 class="product-card__title">Networking &amp; Wi-Fi</h3>
+            <p class="product-card__desc">Routers, mesh Wi-Fi and structured cabling for fast, dead-zone-free coverage.</p>
+            <span class="product-card__cue">Enquire
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Accessories & Storage -->
+        <a class="product-card glass reveal" id="pc-storage"
+           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Accessories%20%26%20Storage.%20Please%20share%20details."
+           target="_blank" rel="noopener" aria-label="Enquire about Accessories and Storage on WhatsApp">
+          <span class="product-card__icon" data-accent="orange" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v6h14V7H5Zm9.5 8.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Z"/></svg>
+          </span>
+          <div class="product-card__body">
+            <h3 class="product-card__title">Accessories &amp; Storage</h3>
+            <p class="product-card__desc">Surveillance hard drives, UPS power backup, monitors and every essential add-on.</p>
+            <span class="product-card__cue">Enquire
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- NVR & DVR Recorders -->
+        <a class="product-card glass reveal" id="pc-nvr"
+           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20NVR%20%26%20DVR%20Recorders.%20Please%20share%20details."
+           target="_blank" rel="noopener" aria-label="Enquire about NVR and DVR Recorders on WhatsApp">
+          <span class="product-card__icon" data-accent="blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M3 6h18a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm2 7.5V15h7v-1.5H5Zm11.5-.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM5 9v2h6V9H5Zm11.5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg>
+          </span>
+          <div class="product-card__body">
+            <h3 class="product-card__title">NVR &amp; DVR Recorders</h3>
+            <p class="product-card__desc">Round-the-clock recording with weeks of storage and secure playback from any device.</p>
+            <span class="product-card__cue">Enquire
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===== SCROLL-DRAW STATEMENT ===== -->
+    <section class="scroll-draw" id="coverage">
+      <div class="scroll-draw__sticky">
+        <svg class="scroll-draw__svg" viewBox="0 0 1200 700" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <linearGradient id="draw-grad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FF2E38"/>
+              <stop offset="0.5" stop-color="#C20D16"/>
+              <stop offset="1" stop-color="#FF6A2C"/>
+            </linearGradient>
+          </defs>
+          <path class="scroll-draw__path" d="M-60 470 C 200 500 270 250 470 290 C 660 328 700 540 900 500 C 1040 472 1110 360 1060 280 C 1018 213 920 232 936 312 C 950 384 1080 408 1260 330"/>
+          <circle class="scroll-draw__dot" r="8" cx="-60" cy="470"/>
+        </svg>
+
+        <div class="scroll-draw__content">
+          <span class="kicker">Always-on coverage</span>
+          <h2 class="scroll-draw__title">Security that <span class="grad-text">follows every move</span></h2>
+          <p>From the first free survey to round-the-clock support, Matha links every camera, recorder and device into one seamless system — so nothing ever slips out of view.</p>
+          <a class="btn btn--wa btn--lg" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I'd%20like%20to%20book%20a%20free%20site%20survey." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM16.57 13.94c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+            Book a free site survey
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="section section--tight" id="stats">
+      <div class="stats glass reveal">
+        <div class="stat">
+          <span class="stat__num" data-count="10" data-suffix="+">0</span>
+          <span class="stat__label">Years of experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="1500" data-suffix="+">0</span>
+          <span class="stat__label">Cameras installed</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="3000" data-suffix="+">0</span>
+          <span class="stat__label">Systems serviced</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="98" data-suffix="%">0</span>
+          <span class="stat__label">Happy customers</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY US ===== -->
+    <section class="section" id="why">
+      <div class="section__head reveal">
+        <span class="kicker">Why Matha Computers</span>
+        <h2 class="section__title">Premium service, <span class="grad-text grad-text--orange">honest pricing</span></h2>
+        <p class="section__sub">A local team that treats your security and devices like our own.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature glass reveal">
+          <div class="feature__ic" data-accent="cyan">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+          </div>
+          <h3>Fast turnaround</h3>
+          <p>Same-day diagnostics and quick repairs so you're never offline for long.</p>
+        </div>
+        <div class="feature glass reveal">
+          <div class="feature__ic" data-accent="blue">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3zm-1.2 13.2L7 11.4l1.5-1.5 2.3 2.3 4.7-4.7L17 9z"/></svg>
+          </div>
+          <h3>Genuine &amp; warranted</h3>
+          <p>Only authentic products and parts, backed by manufacturer warranty.</p>
+        </div>
+        <div class="feature glass reveal">
+          <div class="feature__ic" data-accent="orange">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          </div>
+          <h3>Local &amp; reachable</h3>
+          <p>Based in Harohalli, Bangalore — on-call support across the region.</p>
+        </div>
+        <div class="feature glass reveal">
+          <div class="feature__ic" data-accent="cyan">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4V6a2 2 0 0 1 2-2zm3 6h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/></svg>
+          </div>
+          <h3>WhatsApp support</h3>
+          <p>Message us a photo of the issue and get a quote in minutes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BRANDS ===== -->
+    <section class="section section--tight" id="brands">
+      <div class="section__head reveal">
+        <span class="kicker">Brands we work with</span>
+        <h2 class="section__title">Trusted brands we <span class="grad-text">supply &amp; service</span></h2>
+      </div>
+      <div class="brands reveal" aria-label="Brands">
+        <span class="chip">CP Plus</span><span class="chip">Hikvision</span><span class="chip">Dahua</span>
+        <span class="chip">Dell</span><span class="chip">HP</span><span class="chip">Lenovo</span>
+        <span class="chip">Asus</span><span class="chip">Acer</span><span class="chip">Intel</span>
+        <span class="chip">AMD</span><span class="chip">Seagate</span><span class="chip">TP-Link</span>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="section" id="process">
+      <div class="section__head reveal">
+        <span class="kicker">How it works</span>
+        <h2 class="section__title">Simple, <span class="grad-text">3-step</span> process</h2>
+      </div>
+      <ol class="steps">
+        <li class="step glass reveal"><span class="step__n">01</span><h3>Tell us your need</h3><p>Call or WhatsApp us about your CCTV, desktop or laptop requirement.</p></li>
+        <li class="step glass reveal"><span class="step__n">02</span><h3>Free survey &amp; quote</h3><p>We assess on-site (for CCTV) and share a transparent, no-obligation quote.</p></li>
+        <li class="step glass reveal"><span class="step__n">03</span><h3>Install &amp; support</h3><p>Professional installation/repair with ongoing AMC and support.</p></li>
+      </ol>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section section--tight" id="reviews">
+      <div class="section__head reveal">
+        <span class="kicker">Customer love</span>
+        <h2 class="section__title">What our <span class="grad-text grad-text--orange">clients say</span></h2>
+      </div>
+      <div class="cards cards--3">
+        <figure class="card glass reveal">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+          </div>
+          <blockquote>"Installed 8 CCTV cameras for our shop. Neat wiring, great picture quality and the mobile app works perfectly. Highly recommended."</blockquote>
+          <figcaption>— Ramesh K., Harohalli</figcaption>
+        </figure>
+        <figure class="card glass reveal">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+          </div>
+          <blockquote>"My laptop was repaired the same day at a fair price. Very honest and knowledgeable team."</blockquote>
+          <figcaption>— Anitha S., Huskur</figcaption>
+        </figure>
+        <figure class="card glass reveal">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7L12 17.8 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+          </div>
+          <blockquote>"Built a custom desktop for my son's studies and gaming. Excellent guidance on components and budget."</blockquote>
+          <figcaption>— Mohan R., Bangalore</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact">
+      <div class="contact glass reveal">
+        <div class="contact__info">
+          <span class="kicker">Get in touch</span>
+          <h2 class="section__title">Let's secure &amp; <span class="grad-text">power up</span> your space</h2>
+          <p class="section__sub">Send us your requirement — we usually reply within minutes on WhatsApp.</p>
+
+          <ul class="contact__list">
+            <li>
+              <span class="contact__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.3 2.1z"/></svg>
+              </span>
+              <div><strong>Call us</strong><br>
+                <a href="tel:+919886795838">98867 95838</a> · <a href="tel:+917019287578">70192 87578</a>
+              </div>
+            </li>
+            <li>
+              <span class="contact__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+              </span>
+              <div><strong>Visit us</strong><br>Huskur, Harohalli, Bangalore — 560099, Karnataka</div>
+            </li>
+            <li>
+              <span class="contact__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.9 5h-1.8v6l5 3 .9-1.5-4.1-2.4z"/></svg>
+              </span>
+              <div><strong>Hours</strong><br>Mon–Sat · 9:30 AM – 8:00 PM</div>
+            </li>
+          </ul>
+
+          <div class="contact__map">
+            <iframe
+              title="Matha Computers & CCTV location map"
+              src="https://maps.google.com/maps?q=Harohalli%2C%20Bangalore%20560099&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <form class="contact__form" id="leadForm" novalidate>
+          <p class="form__note">This form opens WhatsApp with your details pre-filled — no account or login needed.</p>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="e.g. Suresh Kumar" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="10-digit mobile" pattern="[0-9 +]{10,15}" />
+          </div>
+          <div class="field">
+            <label for="service">I'm interested in</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>CCTV installation</option>
+              <option>CCTV service / AMC</option>
+              <option>Desktop purchase / custom build</option>
+              <option>Laptop purchase</option>
+              <option>Computer / laptop repair</option>
+              <option>Networking / IT support</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message <span class="muted">(optional)</span></label>
+            <textarea id="message" name="message" rows="3" placeholder="Tell us a bit about your requirement"></textarea>
+          </div>
+          <button type="submit" class="btn btn--wa btn--lg btn--block">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM16.57 13.94c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+            Send via WhatsApp
+          </button>
+          <a class="form__alt" href="mailto:info@mathacomputers.in">Prefer email? Write to info@mathacomputers.in</a>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo.svg" alt="" width="36" height="36" />
+        <div>
+          <strong>Matha Computers &amp; CCTV</strong>
+          <p>CCTV · Desktop · Laptop — Sales &amp; Service</p>
+        </div>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer__copy">© <span id="year">2026</span> Matha Computers &amp; CCTV · Harohalli, Bangalore — 560099</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="fab" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%21" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM12.05 20.1h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+  </a>
+
+  <script src="js/cinematic.js?v=3" defer></script>
+  <script src="js/main.js?v=5" defer></script>
+</body>
+</html>
