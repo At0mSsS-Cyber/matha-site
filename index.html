@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#ffffff" />
 
   <!-- Primary SEO -->
   <title>Matha Computers &amp; CCTV | CCTV, Desktop &amp; Laptop Sales &amp; Service in Bangalore</title>
@@ -36,9 +36,13 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=10" />
+  <link rel="stylesheet" href="css/styles.css?v=25" />
+
+  <!-- Vanta clouds background (lazy, see js/main.js for init) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.clouds.min.js"></script>
 
 
   <!-- Structured data: LocalBusiness (SEO) -->
@@ -76,20 +80,7 @@
   </script>
 </head>
 <body>
-  <!-- Cinematic surveillance sequence — fixed living background for the whole page -->
-  <canvas id="seqCanvas" aria-hidden="true"></canvas>
-  <canvas id="netCanvas" aria-hidden="true"></canvas>
-  <div id="seqVeil" aria-hidden="true"></div>
-  <div id="seqScrim" aria-hidden="true"></div>
-
-  <!-- Preloader -->
-  <div id="seqLoader" aria-hidden="true">
-    <div class="seqLoader__ring"></div>
-    <p class="seqLoader__text">Establishing secure feed</p>
-  </div>
-
-  <!-- Mouse-follow glow -->
-  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- Skip link (a11y) -->
   <a class="skip-link" href="#hero">Skip to content</a>
@@ -107,9 +98,10 @@
 
       <nav class="nav__links" aria-label="Primary">
         <a href="#services">Services</a>
-        <a href="#why">Why Us</a>
+        <a href="#solutions">Solutions</a>
         <a href="#products">Products</a>
-        <a href="#process">Process</a>
+        <a href="#packages">Packages</a>
+        <a href="#support">Support</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -126,62 +118,53 @@
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu" hidden>
       <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
+      <a href="#solutions">Solutions</a>
       <a href="#products">Products</a>
-      <a href="#process">Process</a>
+      <a href="#packages">Packages</a>
+      <a href="#faq">FAQ</a>
+      <a href="#support">Support</a>
       <a href="#contact">Contact</a>
       <a class="btn btn--wa" href="https://wa.me/919886795838" target="_blank" rel="noopener">Chat on WhatsApp</a>
     </div>
   </header>
 
   <main>
-    <!-- ===== CINEMATIC HERO (scroll-driven surveillance sequence) ===== -->
-    <section class="cine" id="hero">
-      <div class="cine__stage">
-
-        <!-- Stage 1 · the camera -->
-        <div class="cine__panel cine__panel--intro" data-a="0" data-b="0" data-c="0.12" data-d="0.2">
-          <p class="cine__eyebrow"><span class="dot"></span> Huskur · Harohalli · Bangalore — 560099</p>
-          <h1 class="cine__title">Security that <span class="grad-text">never blinks</span></h1>
-          <p class="cine__lead">
-            CCTV surveillance, desktops and laptops — expert <strong>sales &amp; service</strong>
-            you can trust. From smart camera installations to fast repairs and AMC.
-          </p>
-          <div class="cine__cta">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <span class="kicker">Huskur · Harohalli · Bangalore — 560099</span>
+          <h1 class="hero__title">Security &amp; computing you can <span class="grad-text">rely on</span></h1>
+          <p class="hero__lead">CCTV surveillance, desktops and laptops — expert sales &amp; service for homes, shops and offices across South Bangalore. From smart camera installs to fast repairs and AMC.</p>
+          <div class="hero__cta">
             <a class="btn btn--wa btn--lg" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM12.05 20.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
-              Get a Free Quote
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM12.05 20.1a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Z"/></svg>
+              Get a free quote
             </a>
             <a class="btn btn--ghost btn--lg" href="tel:+919886795838">
               <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.3 2.1Z"/></svg>
               Call 98867 95838
             </a>
           </div>
-        </div>
-
-        <!-- Stage 2 · zoom into the lens -->
-        <div class="cine__panel cine__panel--mid" data-a="0.28" data-b="0.36" data-c="0.47" data-d="0.56">
-          <p class="cine__kicker">Always watching</p>
-          <h2 class="cine__big">Every lens. Every angle.<br>Every second.</h2>
-        </div>
-
-        <!-- Stage 3 · the surveillance network -->
-        <div class="cine__panel cine__panel--net" data-a="0.66" data-b="0.78" data-c="1" data-d="1">
-          <p class="cine__kicker">Always-on coverage</p>
-          <h2 class="cine__title">An intelligent <span class="grad-text">surveillance network</span></h2>
-          <p class="cine__lead">
-            Every camera, recorder and device linked into one seamless system —
-            so nothing ever slips out of view.
-          </p>
-          <div class="cine__cta">
-            <a class="btn btn--wa btn--lg" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27d%20like%20to%20book%20a%20free%20site%20survey." target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM16.57 13.94c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
-              Book a free site survey
-            </a>
+          <div class="hero__trust">
+            <span class="lbl">Authorized dealer:</span>
+            <b>CP Plus</b><span class="hero__dot"></span><b>Hikvision</b><span class="hero__dot"></span><b>Dahua</b>
           </div>
         </div>
 
-        <span class="cine__cue" aria-hidden="true"><span></span></span>
+        <div class="hero__media">
+          <div class="hero__card">
+            <img src="assets/products/cpplus-ref/bullet-camera-4mp.png" alt="HD CCTV bullet camera" width="280" height="200" />
+          </div>
+          <div class="hero__chip hero__chip--a">
+            <i><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3 6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1.2l4.5-2.3a1 1 0 0 1 1.5.9v8.4a1 1 0 0 1-1.5.9L16 12.8V14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Zm6 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg></i>
+            <span><strong>1,500+</strong><small>cameras installed</small></span>
+          </div>
+          <div class="hero__chip hero__chip--b">
+            <i><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 3v12h10V5H7Zm5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></i>
+            <span><strong>24/7</strong><small>mobile monitoring</small></span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -194,7 +177,8 @@
       </div>
 
       <div class="cards">
-        <article class="card glass reveal" tabindex="0">
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
           <div class="card__icon" data-accent="cyan">
             <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M3 6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1.2l4.5-2.3a1 1 0 0 1 1.5.9v8.4a1 1 0 0 1-1.5.9L16 12.8V14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Zm6 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>
           </div>
@@ -207,7 +191,8 @@
           </ul>
         </article>
 
-        <article class="card glass reveal" tabindex="0">
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
           <div class="card__icon" data-accent="blue">
             <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-5v2h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2H6a2 2 0 0 1-2-2V5Zm2 0v9h12V5H6Z"/></svg>
           </div>
@@ -220,7 +205,8 @@
           </ul>
         </article>
 
-        <article class="card glass reveal" tabindex="0">
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
           <div class="card__icon" data-accent="orange">
             <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M5 4h14a1 1 0 0 1 1 1v10h1a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1h1V5a1 1 0 0 1 1-1Zm1 2v9h12V6H6Z"/></svg>
           </div>
@@ -233,7 +219,8 @@
           </ul>
         </article>
 
-        <article class="card glass reveal" tabindex="0">
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
           <div class="card__icon" data-accent="cyan">
             <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 3 3 3 3 0 0 1-1 5.65V18a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-1.35A3 3 0 0 1 4 11a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Zm0 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg>
           </div>
@@ -248,156 +235,173 @@
       </div>
     </section>
 
+    <!-- ===== SOLUTIONS BY SPACE ===== -->
+    <section class="section" id="solutions">
+      <div class="section__head reveal">
+        <span class="kicker">Solutions by space</span>
+        <h2 class="section__title">Built for <span class="grad-text">every kind of space</span></h2>
+        <p class="section__sub">Every place has its own blind spots. We design the right camera mix and recording for where you actually need eyes.</p>
+      </div>
+
+      <div class="sol-grid">
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <div class="card__icon" data-accent="cyan"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 3 2 11h3v9h6v-6h2v6h6v-9h3z"/></svg></div>
+          <h3>Home &amp; Villa</h3>
+          <p>Cover gates, doors and living areas with night vision and instant phone alerts while you're away.</p>
+          <ul class="card__list"><li>Entry &amp; gate</li><li>Night vision</li><li>Mobile alerts</li></ul>
+        </article>
+
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <div class="card__icon" data-accent="blue"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M7 7V6a5 5 0 0 1 10 0v1h3l-1 14H5L4 7zm2 0h6V6a3 3 0 0 0-6 0z"/></svg></div>
+          <h3>Shop &amp; Retail</h3>
+          <p>Keep an eye on the billing counter, entrance and stock room — deter theft and settle disputes with clear footage.</p>
+          <ul class="card__list"><li>Billing counter</li><li>Entrance &amp; aisles</li><li>Theft deterrence</li></ul>
+        </article>
+
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <div class="card__icon" data-accent="orange"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M4 3h10v18H4zm12 6h4v12h-4zM7 6h2v2H7zm4 0h2v2h-2zM7 10h2v2H7zm4 0h2v2h-2zM7 14h2v2H7zm4 0h2v2h-2z"/></svg></div>
+          <h3>Office</h3>
+          <p>Reception, cabins and server-room coverage with role-based remote viewing for managers and owners.</p>
+          <ul class="card__list"><li>Reception &amp; cabins</li><li>Server room</li><li>Remote access</li></ul>
+        </article>
+
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <div class="card__icon" data-accent="cyan"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M3 21V8l7-2v15H3zm9 0V5l9-2v18h-9z"/></svg></div>
+          <h3>Apartment &amp; Society</h3>
+          <p>Entry/exit, parking, lifts and perimeter — multi-camera systems with weeks of recording for committees.</p>
+          <ul class="card__list"><li>Gate &amp; parking</li><li>Lifts &amp; lobby</li><li>Perimeter</li></ul>
+        </article>
+
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <div class="card__icon" data-accent="blue"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M3 21V9l9-4 9 4v12h-5v-6H8v6z"/></svg></div>
+          <h3>Warehouse &amp; Industrial</h3>
+          <p>Wide-area and perimeter coverage for large premises, with low-light cameras and round-the-clock recording.</p>
+          <ul class="card__list"><li>Wide-area</li><li>Perimeter</li><li>24/7 recording</li></ul>
+        </article>
+
+        <article class="card glass reveal">
+          <span class="card__decor" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <div class="card__icon" data-accent="orange"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5z"/></svg></div>
+          <h3>School &amp; Clinic</h3>
+          <p>Corridors, entrances and waiting areas monitored discreetly for the safety of students, staff and patients.</p>
+          <ul class="card__list"><li>Corridors</li><li>Entrances</li><li>Discreet coverage</li></ul>
+        </article>
+      </div>
+    </section>
+
     <!-- ===== PRODUCTS (red/black surveillance bento) ===== -->
     <section class="section" id="products">
       <div class="section__head reveal">
         <span class="kicker">What we stock</span>
-        <h2 class="section__title">Everything for a <span class="grad-text">smarter, safer</span> space</h2>
-        <p class="section__sub">From surveillance that never sleeps to the computers that run your day — explore our range. Tap any card to enquire on WhatsApp.</p>
+        <h2 class="section__title">Cameras &amp; recorders for <span class="grad-text">every need</span></h2>
+        <p class="section__sub">From a single doorway to a full campus — tap any product to ask about models, specs and pricing on WhatsApp.</p>
       </div>
 
-      <div class="products-grid">
-
-        <!-- HERO: CCTV Camera Systems -->
-        <a class="product-card glass reveal" id="pc-cctv"
-           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20CCTV%20Camera%20Systems.%20Please%20share%20details."
-           target="_blank" rel="noopener" aria-label="Enquire about CCTV Camera Systems on WhatsApp">
-          <span class="product-card__tag">Most installed</span>
-          <span class="product-card__grid" aria-hidden="true"></span>
-          <svg class="pc-rings" viewBox="0 0 200 200" aria-hidden="true">
-            <g fill="none" stroke="currentColor" stroke-width="1.4">
-              <circle cx="100" cy="100" r="30" stroke-opacity="0.65"/>
-              <circle cx="100" cy="100" r="56" stroke-opacity="0.40"/>
-              <circle cx="100" cy="100" r="84" stroke-opacity="0.22"/>
-              <line x1="100" y1="8" x2="100" y2="192" stroke-opacity="0.16"/>
-              <line x1="8" y1="100" x2="192" y2="100" stroke-opacity="0.16"/>
-            </g>
-            <circle class="pc-rings__core" cx="100" cy="100" r="4.5" fill="currentColor"/>
-          </svg>
-          <span class="product-card__icon" data-accent="cyan" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="30" height="30"><path fill="currentColor" d="M2.55 7.1 15.86 3.6a1 1 0 0 1 1.22.71l.85 3.18a1 1 0 0 1-.7 1.22l-2.3.62.39 1.45-1.93.52-.39-1.45-8.22 2.2a1 1 0 0 1-1.22-.7L2.55 7.1Zm2.2.84.54 2 8.7-2.33-.54-2-8.7 2.33Z"/><path fill="currentColor" d="M10.5 13.2h1.93v2.55a2.7 2.7 0 0 1-2.7 2.7H5.9v-1.93h3.83a.77.77 0 0 0 .77-.77V13.2Z"/></svg>
-          </span>
-          <div class="product-card__body">
-            <h3 class="product-card__title">CCTV Camera Systems</h3>
-            <p class="product-card__desc">HD &amp; IP cameras — bullet, dome, PTZ and Wi-Fi — with crystal-clear night vision and live mobile viewing from anywhere.</p>
-            <div class="product-card__chips">
-              <span>4K Ultra HD</span><span>Color night vision</span><span>Mobile viewing</span>
-            </div>
-            <span class="product-card__cue">Enquire on WhatsApp
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
+      <div class="range-grid">
+        <a class="range-tile glass reveal" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Bullet%20cameras.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Enquire about Bullet cameras on WhatsApp">
+          <span class="range-tile__img"><img src="assets/products/cpplus-ref/bullet-camera-4mp.png" alt="Bullet CCTV camera" width="150" height="110" loading="lazy" /></span>
+          <span class="range-tile__name">Bullet</span>
+          <span class="range-tile__spec">4MP · 30m IR · outdoor</span>
         </a>
-
-        <!-- Desktops & Custom PCs -->
-        <a class="product-card glass reveal" id="pc-desktop"
-           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Desktops%20%26%20Custom%20PCs.%20Please%20share%20details."
-           target="_blank" rel="noopener" aria-label="Enquire about Desktops and Custom PCs on WhatsApp">
-          <span class="product-card__icon" data-accent="orange" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3a1 1 0 1 1 0 2H7a1 1 0 1 1 0-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Z"/></svg>
-          </span>
-          <div class="product-card__body">
-            <h3 class="product-card__title">Desktops &amp; Custom PCs</h3>
-            <p class="product-card__desc">Gaming rigs and office builds — assembled, upgraded and tuned to your budget.</p>
-            <span class="product-card__cue">Enquire
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
+        <a class="range-tile glass reveal" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Dome%20cameras.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Enquire about Dome cameras on WhatsApp">
+          <span class="range-tile__img"><img src="assets/products/cpplus-ref/dome-camera-4mp.png" alt="Dome CCTV camera" width="150" height="110" loading="lazy" /></span>
+          <span class="range-tile__name">Dome</span>
+          <span class="range-tile__spec">4MP · indoor · discreet</span>
         </a>
-
-        <!-- Laptops -->
-        <a class="product-card glass reveal" id="pc-laptop"
-           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Laptops.%20Please%20share%20details."
-           target="_blank" rel="noopener" aria-label="Enquire about Laptops on WhatsApp">
-          <span class="product-card__icon" data-accent="cyan" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M5 5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h1.6a.4.4 0 0 1 .4.4c0 1.1-.9 1.6-2 1.6H4c-1.1 0-2-.5-2-1.6a.4.4 0 0 1 .4-.4H5V5Zm2 1v8h10V6H7Z"/></svg>
-          </span>
-          <div class="product-card__body">
-            <h3 class="product-card__title">Laptops</h3>
-            <p class="product-card__desc">New and refurbished laptops from trusted brands, set up and ready to work.</p>
-            <span class="product-card__cue">Enquire
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
+        <a class="range-tile glass reveal" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20IP%20%2F%20network%20cameras.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Enquire about IP network cameras on WhatsApp">
+          <span class="range-tile__img"><img src="assets/products/cpplus-ref/network-camera.webp" alt="IP network camera" width="150" height="135" loading="lazy" /></span>
+          <span class="range-tile__name">IP / Network</span>
+          <span class="range-tile__spec">PoE · app-ready</span>
         </a>
-
-        <!-- Networking & Wi-Fi -->
-        <a class="product-card glass reveal" id="pc-network"
-           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Networking%20%26%20Wi-Fi.%20Please%20share%20details."
-           target="_blank" rel="noopener" aria-label="Enquire about Networking and Wi-Fi on WhatsApp">
-          <span class="product-card__icon" data-accent="blue" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M12 19.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Zm5.1-6.6-1.6 1.6a4.9 4.9 0 0 0-7 0L6.9 13.2a7.2 7.2 0 0 1 10.2 0Zm3-3-1.6 1.6a9.2 9.2 0 0 0-13 0L3.9 10.2a11.5 11.5 0 0 1 16.2 0Z"/></svg>
-          </span>
-          <div class="product-card__body">
-            <h3 class="product-card__title">Networking &amp; Wi-Fi</h3>
-            <p class="product-card__desc">Routers, mesh Wi-Fi and structured cabling for fast, dead-zone-free coverage.</p>
-            <span class="product-card__cue">Enquire
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
+        <a class="range-tile glass reveal" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Analog%20HD%20cameras.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Enquire about Analog HD cameras on WhatsApp">
+          <span class="range-tile__img"><img src="assets/products/cpplus-ref/analog-hd-camera.webp" alt="Analog HD camera" width="150" height="135" loading="lazy" /></span>
+          <span class="range-tile__name">Analog HD</span>
+          <span class="range-tile__spec">HD · budget-friendly</span>
         </a>
-
-        <!-- Accessories & Storage -->
-        <a class="product-card glass reveal" id="pc-storage"
-           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20Accessories%20%26%20Storage.%20Please%20share%20details."
-           target="_blank" rel="noopener" aria-label="Enquire about Accessories and Storage on WhatsApp">
-          <span class="product-card__icon" data-accent="orange" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v6h14V7H5Zm9.5 8.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6Z"/></svg>
-          </span>
-          <div class="product-card__body">
-            <h3 class="product-card__title">Accessories &amp; Storage</h3>
-            <p class="product-card__desc">Surveillance hard drives, UPS power backup, monitors and every essential add-on.</p>
-            <span class="product-card__cue">Enquire
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
+        <a class="range-tile glass reveal" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20an%20NVR.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Enquire about an NVR on WhatsApp">
+          <span class="range-tile__img"><img src="assets/products/cpplus-ref/nvr.webp" alt="Network Video Recorder" width="150" height="135" loading="lazy" /></span>
+          <span class="range-tile__name">NVR</span>
+          <span class="range-tile__spec">IP recording · 4–32 ch</span>
         </a>
-
-        <!-- NVR & DVR Recorders -->
-        <a class="product-card glass reveal" id="pc-nvr"
-           href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20NVR%20%26%20DVR%20Recorders.%20Please%20share%20details."
-           target="_blank" rel="noopener" aria-label="Enquire about NVR and DVR Recorders on WhatsApp">
-          <span class="product-card__icon" data-accent="blue" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M3 6h18a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm2 7.5V15h7v-1.5H5Zm11.5-.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM5 9v2h6V9H5Zm11.5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg>
-          </span>
-          <div class="product-card__body">
-            <h3 class="product-card__title">NVR &amp; DVR Recorders</h3>
-            <p class="product-card__desc">Round-the-clock recording with weeks of storage and secure playback from any device.</p>
-            <span class="product-card__cue">Enquire
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-            </span>
-          </div>
+        <a class="range-tile glass reveal" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20a%20DVR.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Enquire about a DVR on WhatsApp">
+          <span class="range-tile__img"><img src="assets/products/cpplus-ref/dvr.png" alt="Digital Video Recorder" width="150" height="135" loading="lazy" /></span>
+          <span class="range-tile__name">DVR</span>
+          <span class="range-tile__spec">Analog recording · 4–16 ch</span>
         </a>
-
+        <a class="range-tile glass reveal" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20a%20Video%20Door%20Phone.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Enquire about a Video Door Phone on WhatsApp">
+          <span class="range-tile__img"><img src="assets/products/cpplus-ref/video-door-phone.png" alt="Video door phone" width="150" height="135" loading="lazy" /></span>
+          <span class="range-tile__name">Video Door Phone</span>
+          <span class="range-tile__spec">See &amp; talk to visitors</span>
+        </a>
+        <a class="range-tile glass reveal" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20CCTV%20accessories.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Enquire about CCTV accessories on WhatsApp">
+          <span class="range-tile__img"><img src="assets/products/cpplus-ref/accessories.png" alt="CCTV accessories" width="150" height="135" loading="lazy" /></span>
+          <span class="range-tile__name">Accessories</span>
+          <span class="range-tile__spec">Mounts, power &amp; cables</span>
+        </a>
       </div>
     </section>
 
-    <!-- ===== SCROLL-DRAW STATEMENT ===== -->
-    <section class="scroll-draw" id="coverage">
-      <div class="scroll-draw__sticky">
-        <svg class="scroll-draw__svg" viewBox="0 0 1200 700" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <defs>
-            <linearGradient id="draw-grad" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#FF2E38"/>
-              <stop offset="0.5" stop-color="#C20D16"/>
-              <stop offset="1" stop-color="#FF6A2C"/>
-            </linearGradient>
-          </defs>
-          <path class="scroll-draw__path" d="M-60 470 C 200 500 270 250 470 290 C 660 328 700 540 900 500 C 1040 472 1110 360 1060 280 C 1018 213 920 232 936 312 C 950 384 1080 408 1260 330"/>
-          <circle class="scroll-draw__dot" r="8" cx="-60" cy="470"/>
-        </svg>
+    <!-- ===== PACKAGES ===== -->
+    <section class="section" id="packages">
+      <div class="section__head reveal">
+        <span class="kicker">Popular packages</span>
+        <h2 class="section__title">Ready-made <span class="grad-text">CCTV packages</span></h2>
+        <p class="section__sub">Clear starting points for the most common setups — or we'll tailor one for you after a free site survey.</p>
+      </div>
 
-        <div class="scroll-draw__content">
-          <span class="kicker">Always-on coverage</span>
-          <h2 class="scroll-draw__title">Security that <span class="grad-text">follows every move</span></h2>
-          <p>From the first free survey to round-the-clock support, Matha links every camera, recorder and device into one seamless system — so nothing ever slips out of view.</p>
-          <a class="btn btn--wa btn--lg" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I'd%20like%20to%20book%20a%20free%20site%20survey." target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM16.57 13.94c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
-            Book a free site survey
-          </a>
-        </div>
+      <div class="pkg-grid">
+        <article class="pkg-card glass reveal">
+          <h3 class="pkg__name">Home Starter</h3>
+          <p class="pkg__tag">Homes &amp; small shops</p>
+          <p class="pkg__price">Get a quote<small>Free site survey included</small></p>
+          <ul class="pkg__list">
+            <li>2 HD cameras (indoor/outdoor)</li>
+            <li>4-channel DVR</li>
+            <li>1TB surveillance storage</li>
+            <li>Mobile viewing setup</li>
+            <li>Professional wiring &amp; installation</li>
+          </ul>
+          <a class="btn btn--wa btn--block" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20the%20Home%20Starter%20CCTV%20package.%20Please%20share%20details." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </article>
+
+        <article class="pkg-card pkg-card--featured glass reveal">
+          <span class="pkg__badge">Most popular</span>
+          <h3 class="pkg__name">Shop Pro</h3>
+          <p class="pkg__tag">Retail &amp; offices</p>
+          <p class="pkg__price">Get a quote<small>Best value for most setups</small></p>
+          <ul class="pkg__list">
+            <li>4 HD / IP cameras</li>
+            <li>4-channel NVR / DVR</li>
+            <li>2TB surveillance storage</li>
+            <li>Colour night vision</li>
+            <li>Mobile + remote viewing</li>
+            <li>Installation &amp; wiring</li>
+          </ul>
+          <a class="btn btn--wa btn--block" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20the%20Shop%20Pro%20CCTV%20package.%20Please%20share%20details." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </article>
+
+        <article class="pkg-card glass reveal">
+          <h3 class="pkg__name">Business 8-Cam</h3>
+          <p class="pkg__tag">Large premises &amp; societies</p>
+          <p class="pkg__price">Get a quote<small>Scales to 16 / 32 channels</small></p>
+          <ul class="pkg__list">
+            <li>8 HD / IP cameras</li>
+            <li>8-channel NVR</li>
+            <li>4TB surveillance storage</li>
+            <li>Colour night vision</li>
+            <li>Structured cabling</li>
+            <li>Optional AMC &amp; support</li>
+          </ul>
+          <a class="btn btn--wa btn--block" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27m%20interested%20in%20the%20Business%208-Camera%20CCTV%20package.%20Please%20share%20details." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </article>
       </div>
     </section>
+
 
     <!-- ===== STATS ===== -->
     <section class="section section--tight" id="stats">
@@ -464,19 +468,29 @@
     <!-- ===== BRANDS ===== -->
     <section class="section section--tight" id="brands">
       <div class="section__head reveal">
-        <span class="kicker">Brands we work with</span>
-        <h2 class="section__title">Trusted brands we <span class="grad-text">supply &amp; service</span></h2>
+        <span class="kicker">Authorized dealer &amp; service partner</span>
+        <h2 class="section__title">Genuine brands we <span class="grad-text">supply &amp; service</span></h2>
       </div>
-      <div class="brands reveal" aria-label="Brands">
-        <span class="chip">CP Plus</span><span class="chip">Hikvision</span><span class="chip">Dahua</span>
-        <span class="chip">Dell</span><span class="chip">HP</span><span class="chip">Lenovo</span>
-        <span class="chip">Asus</span><span class="chip">Acer</span><span class="chip">Intel</span>
-        <span class="chip">AMD</span><span class="chip">Seagate</span><span class="chip">TP-Link</span>
+      <p class="brands__lead reveal">We're an authorized dealer and service partner for India's leading CCTV and computing brands — so you always get genuine products backed by full manufacturer warranty.</p>
+      <div class="marquee reveal" aria-label="Brands we supply and service">
+        <div class="marquee__track">
+          <span class="chip">CP Plus</span><span class="chip">Hikvision</span><span class="chip">Dahua</span>
+          <span class="chip">Dell</span><span class="chip">HP</span><span class="chip">Lenovo</span>
+          <span class="chip">Asus</span><span class="chip">Acer</span><span class="chip">Intel</span>
+          <span class="chip">AMD</span><span class="chip">Seagate</span><span class="chip">TP-Link</span>
+          <span class="chip" aria-hidden="true">CP Plus</span><span class="chip" aria-hidden="true">Hikvision</span><span class="chip" aria-hidden="true">Dahua</span>
+          <span class="chip" aria-hidden="true">Dell</span><span class="chip" aria-hidden="true">HP</span><span class="chip" aria-hidden="true">Lenovo</span>
+          <span class="chip" aria-hidden="true">Asus</span><span class="chip" aria-hidden="true">Acer</span><span class="chip" aria-hidden="true">Intel</span>
+          <span class="chip" aria-hidden="true">AMD</span><span class="chip" aria-hidden="true">Seagate</span><span class="chip" aria-hidden="true">TP-Link</span>
+        </div>
       </div>
     </section>
 
     <!-- ===== PROCESS ===== -->
     <section class="section" id="process">
+      <svg class="flow-svg" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+        <path d="M 40 100 C 220 20, 380 20, 600 100 S 980 180, 1160 100"/>
+      </svg>
       <div class="section__head reveal">
         <span class="kicker">How it works</span>
         <h2 class="section__title">Simple, <span class="grad-text">3-step</span> process</h2>
@@ -531,8 +545,100 @@
       </div>
     </section>
 
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq">
+      <div class="section__head reveal">
+        <span class="kicker">Questions, answered</span>
+        <h2 class="section__title">Frequently asked <span class="grad-text">questions</span></h2>
+      </div>
+      <div class="faq reveal">
+        <details class="faq__item glass" open>
+          <summary>How many cameras do I need?</summary>
+          <p>It depends on your entry points and blind spots. Most homes start with 2–4 cameras and shops with 4–8. We'll recommend the right number — free — during a site survey.</p>
+        </details>
+        <details class="faq__item glass">
+          <summary>Can I watch the cameras live on my phone?</summary>
+          <p>Yes. Every system we install is set up with a mobile app for live viewing and playback from anywhere, on both Android and iPhone.</p>
+        </details>
+        <details class="faq__item glass">
+          <summary>How many days of recording do I get?</summary>
+          <p>Usually 15–30 days, depending on the number of cameras, resolution and hard-disk size. We size the storage to the retention period you want.</p>
+        </details>
+        <details class="faq__item glass">
+          <summary>What happens during a power cut?</summary>
+          <p>We can add a UPS or inverter backup so your cameras and recorder keep running and recording through outages.</p>
+        </details>
+        <details class="faq__item glass">
+          <summary>Do you handle installation and wiring?</summary>
+          <p>Yes — every package includes professional wiring, mounting, configuration and a full walkthrough. No hidden charges.</p>
+        </details>
+        <details class="faq__item glass">
+          <summary>Do you offer warranty and maintenance (AMC)?</summary>
+          <p>All products carry manufacturer warranty, and we offer Annual Maintenance Contracts for worry-free upkeep and priority support.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== SERVICE AREAS ===== -->
+    <section class="section section--tight" id="areas">
+      <svg class="topo-svg" aria-hidden="true" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+        <g fill="none" stroke="rgba(22,198,198,.22)" stroke-width="1">
+          <path d="M 0 80  Q 300 30,  600 80  T 1200 80"/>
+          <path d="M 0 140 Q 300 90,  600 140 T 1200 140"/>
+          <path d="M 0 200 Q 300 150, 600 200 T 1200 200"/>
+          <path d="M 0 260 Q 300 210, 600 260 T 1200 260"/>
+          <path d="M 0 320 Q 300 270, 600 320 T 1200 320"/>
+        </g>
+      </svg>
+      <div class="section__head reveal">
+        <span class="kicker">Where we work</span>
+        <h2 class="section__title">Serving <span class="grad-text">South Bangalore</span></h2>
+      </div>
+      <div class="areas reveal">
+        <div class="brands" aria-label="Service areas">
+          <span class="chip">Harohalli</span><span class="chip">Huskur</span><span class="chip">Kanakapura Road</span>
+          <span class="chip">Bannerghatta</span><span class="chip">Jigani</span><span class="chip">Anekal</span>
+          <span class="chip">Electronic City</span><span class="chip">Sarjapur</span><span class="chip">Gottigere</span>
+          <span class="chip">Kaggalipura</span><span class="chip">Bilekahalli</span><span class="chip">&amp; nearby</span>
+        </div>
+        <p class="areas__note">Not sure if we cover your area? <a href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20do%20you%20cover%20my%20area%3F%20My%20location%20is%3A%20" target="_blank" rel="noopener">Message us your location on WhatsApp</a> — we'll confirm in minutes.</p>
+      </div>
+    </section>
+
+    <!-- ===== AMC & SUPPORT ===== -->
+    <section class="section" id="support">
+      <div class="radar-bg" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="section__head reveal">
+        <span class="kicker">After we install</span>
+        <h2 class="section__title">Maintenance &amp; <span class="grad-text grad-text--orange">support</span></h2>
+        <p class="section__sub">Keep your system in top shape long after installation — with an affordable maintenance plan.</p>
+      </div>
+
+      <div class="support support--solo">
+        <div class="support__panel glass reveal">
+          <h3>Annual Maintenance Contract (AMC)</h3>
+          <p>We don't disappear after installation. An affordable yearly plan keeps every camera sharp and every recording safe — so small issues never become big ones.</p>
+          <ul class="support__list">
+            <li>Scheduled health checks &amp; camera cleaning</li>
+            <li>Priority on-site visits</li>
+            <li>Firmware &amp; configuration updates</li>
+            <li>Storage &amp; recording verification</li>
+            <li>Discounted parts &amp; replacements</li>
+          </ul>
+          <a class="btn btn--wa btn--lg" href="https://wa.me/919886795838?text=Hi%20Matha%20Computers%2C%20I%27d%20like%20to%20know%20about%20an%20AMC%20plan." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM16.57 13.94c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+            Ask about an AMC plan
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== CONTACT ===== -->
     <section class="section" id="contact">
+      <svg class="wave-svg" aria-hidden="true" viewBox="0 0 1200 300" preserveAspectRatio="none">
+        <path d="M 0 150 C 200 60, 400 240, 600 150 S 1000 60, 1200 150" stroke="rgba(46,91,255,.16)"/>
+        <path d="M 0 185 C 200 95, 400 275, 600 185 S 1000 95, 1200 185" stroke="rgba(124,92,255,.12)"/>
+      </svg>
       <div class="contact glass reveal">
         <div class="contact__info">
           <span class="kicker">Get in touch</span>
@@ -619,8 +725,11 @@
       </div>
       <nav class="footer__links" aria-label="Footer">
         <a href="#services">Services</a>
-        <a href="#why">Why Us</a>
+        <a href="#solutions">Solutions</a>
         <a href="#products">Products</a>
+        <a href="#packages">Packages</a>
+        <a href="#faq">FAQ</a>
+        <a href="#support">Support</a>
         <a href="#contact">Contact</a>
       </nav>
       <p class="footer__copy">© <span id="year">2026</span> Matha Computers &amp; CCTV · Harohalli, Bangalore — 560099</p>
@@ -632,7 +741,6 @@
     <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM12.05 20.1h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
   </a>
 
-  <script src="js/cinematic.js?v=3" defer></script>
-  <script src="js/main.js?v=5" defer></script>
+  <script src="js/main.js?v=9" defer></script>
 </body>
 </html>

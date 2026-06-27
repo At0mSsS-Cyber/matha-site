@@ -4,8 +4,8 @@
   "description": "CCTV, desktop and laptop sales & service in Harohalli, Bangalore.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B0F19",
-  "theme_color": "#0B0F19",
+  "background_color": "#ffffff",
+  "theme_color": "#2e5bff",
   "icons": [
     { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]
