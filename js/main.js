@@ -19,6 +19,19 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Scroll progress bar ---------- */
+  var progress = document.getElementById('scrollProgress');
+  if (progress) {
+    var updateProgress = function () {
+      var st = window.scrollY || document.documentElement.scrollTop;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (max > 0 ? (st / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
+    updateProgress();
+  }
+
   /* ---------- Mobile menu ---------- */
   var toggle = document.getElementById('navToggle');
   var menu = document.getElementById('mobileMenu');
@@ -122,6 +135,35 @@
       window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text, '_blank', 'noopener');
     });
   }
+
+  /* ---------- Vanta clouds hero background ----------
+     Scripts in <head> with defer load before this IIFE runs. */
+  function initVantaClouds() {
+    if (!window.VANTA || !window.VANTA.CLOUDS || reduceMotion) return;
+    var hero = document.getElementById('hero');
+    if (!hero) return;
+    try {
+      window.__vanta = window.VANTA.CLOUDS({
+        el: hero,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200,
+        minWidth: 200,
+        backgroundColor: 0xffffff,
+        skyColor: 0x68b8d7,
+        cloudColor: 0xadc1de,
+        cloudShadowColor: 0x183550,
+        sunColor: 0xff9919,
+        sunGlareColor: 0xff6633,
+        sunlightColor: 0xff9933,
+        speed: 1
+      });
+      document.body.classList.add('vanta-active');
+    } catch (e) { /* fallback aurora/light background remains */ }
+  }
+  if (document.readyState === 'complete' || document.readyState === 'interactive') initVantaClouds();
+  else window.addEventListener('DOMContentLoaded', initVantaClouds);
 
   /* ---------- Scroll-draw: neon stroke that follows scroll progress ---------- */
   var drawSection = document.getElementById('coverage');
